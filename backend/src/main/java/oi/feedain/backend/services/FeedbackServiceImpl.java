@@ -3,32 +3,41 @@ package oi.feedain.backend.services;
 import oi.feedain.backend.models.Feedback;
 import oi.feedain.backend.models.rest.FeedbackRequest;
 import oi.feedain.backend.models.rest.RateFeedbackRequest;
+import oi.feedain.backend.repositories.FeedbackRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
+    private FeedbackRepository feedbackRepository;
+
+    @Autowired
+    public FeedbackServiceImpl(FeedbackRepository feedbackRepository) {
+        this.feedbackRepository = feedbackRepository;
+    }
+
     @Override
     public Feedback createFeedback(FeedbackRequest feedbackRequest) {
-        throw new UnsupportedOperationException("createFeedback gets implemented when the blockchain is working");
+        return this.feedbackRepository.createFeedback(feedbackRequest);
     }
 
     @Override
     public Feedback getFeedback(Long id) {
-        throw new UnsupportedOperationException("getFeedback gets implemented when the blockchain is working");
+        return this.feedbackRepository.getFeedback(id);
     }
 
     @Override
     public Feedback updateFeedback(FeedbackRequest feedbackRequest) {
-        throw new UnsupportedOperationException("updateFeedback gets implemented when the blockchain is working");
+        return this.feedbackRepository.updateFeedback(feedbackRequest);
     }
 
     @Override
     public boolean deleteFeedback(FeedbackRequest feedbackRequest) {
-        throw new UnsupportedOperationException("deleteFeedback gets implemented when the blockchain is working");
+        return this.feedbackRepository.deleteFeedback(feedbackRequest);
     }
 
     @Override
     public Feedback rateFeedback(RateFeedbackRequest rateFeedbackRequest) {
-        throw new UnsupportedOperationException("rateFeedback gets implemented when the blockchain is working");
+        return this.feedbackRepository.rateFeedback(rateFeedbackRequest);
     }
 }

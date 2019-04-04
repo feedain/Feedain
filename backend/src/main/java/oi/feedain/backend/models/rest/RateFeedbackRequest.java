@@ -1,18 +1,29 @@
 package oi.feedain.backend.models.rest;
 
-import oi.feedain.backend.models.Feedback;
+import oi.feedain.backend.models.RegularUser;
+import oi.feedain.backend.models.UserBase;
 
 public class RateFeedbackRequest {
-    private Feedback feedback;
+    private Long id;
+
+    private UserBase rater;
 
     private String rating;
 
-    public Feedback getFeedback() {
-        return this.feedback;
+    public Long getId() {
+        return this.id;
     }
 
-    public void setFeedback(Feedback feedback) {
-        this.feedback = feedback;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public UserBase getRater() {
+        return this.rater;
+    }
+
+    public void setRater(RegularUser rater) {
+        this.rater = rater;
     }
 
     public String getRating() {
