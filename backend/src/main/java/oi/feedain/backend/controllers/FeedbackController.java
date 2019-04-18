@@ -62,6 +62,7 @@ public class FeedbackController {
         else return new ResponseEntity<>(new Response("Rated feedback successfully", feedback), HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/all", produces = { "application/json" })
     public ResponseEntity getAllFeedback() {
         List<Feedback> feedbackList = this.feedbackService.getAllFeedback();
