@@ -4,6 +4,8 @@ import oi.feedain.backend.models.Feedback;
 import oi.feedain.backend.models.rest.FeedbackRequest;
 import oi.feedain.backend.models.rest.RateFeedbackRequest;
 
+import java.util.List;
+
 public interface FeedbackService {
     Feedback createFeedback(FeedbackRequest feedbackRequest);
 
@@ -14,4 +16,6 @@ public interface FeedbackService {
     boolean deleteFeedback(FeedbackRequest feedbackRequest);
 
     Feedback rateFeedback(RateFeedbackRequest rateFeedbackRequest);
+
+    List<Feedback> getAllFeedback();
 }

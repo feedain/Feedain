@@ -5,6 +5,8 @@ import oi.feedain.backend.models.rest.FeedbackRequest;
 import oi.feedain.backend.models.rest.RateFeedbackRequest;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface FeedbackRepository {
     Feedback createFeedback(FeedbackRequest feedbackRequest);
@@ -16,4 +18,6 @@ public interface FeedbackRepository {
     boolean deleteFeedback(FeedbackRequest feedbackRequest);
 
     Feedback rateFeedback(RateFeedbackRequest rateFeedbackRequest);
+
+    List<Feedback> getAllFeedback();
 }

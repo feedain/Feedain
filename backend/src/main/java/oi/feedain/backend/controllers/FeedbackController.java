@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/feedback")
 public class FeedbackController {
@@ -58,5 +60,13 @@ public class FeedbackController {
 
         if (feedback == null) return new ResponseEntity<>(new Response("Failed to rate the feedback", null), HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>(new Response("Rated feedback successfully", feedback), HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/all", produces = { "application/json" })
+    public ResponseEntity getAllFeedback() {
+        List<Feedback> feedbackList = this.feedbackService.getAllFeedback();
+
+        if (feedbackList.isEmpty()) return new ResponseEntity<>(new Response(feedbackList), HttpStatus.OK);
+        else return new ResponseEntity<>(new Response("No feedback found"), HttpStatus.OK);
     }
 }

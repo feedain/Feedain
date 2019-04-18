@@ -59,4 +59,11 @@ public class FeedbackRepositoryImpl implements FeedbackRepository {
 
         return feedback;
     }
+
+    @Override
+    public List<Feedback> getAllFeedback() {
+        return this.feedbackList;
+    }
+
+
 }

@@ -7,6 +7,8 @@ import oi.feedain.backend.repositories.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
     private FeedbackRepository feedbackRepository;
@@ -40,4 +42,11 @@ public class FeedbackServiceImpl implements FeedbackService {
     public Feedback rateFeedback(RateFeedbackRequest rateFeedbackRequest) {
         return this.feedbackRepository.rateFeedback(rateFeedbackRequest);
     }
+
+    @Override
+    public List<Feedback> getAllFeedback() {
+        return this.feedbackRepository.getAllFeedback();
+    }
+
+
 }
