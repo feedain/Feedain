@@ -22,6 +22,7 @@ public class FeedbackController {
         this.feedbackService = feedbackService;
     }
 
+    @CrossOrigin
     @PostMapping(value = "", produces = { "application/json" })
     public ResponseEntity<Response> createFeedback(@RequestBody FeedbackRequest feedbackRequest) {
         Feedback feedback = this.feedbackService.createFeedback(feedbackRequest);
