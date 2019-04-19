@@ -67,7 +67,7 @@ public class FeedbackController {
     public ResponseEntity getAllFeedback() {
         List<Feedback> feedbackList = this.feedbackService.getAllFeedback();
 
-        if (feedbackList.isEmpty()) return new ResponseEntity<>(new Response(feedbackList), HttpStatus.OK);
-        else return new ResponseEntity<>(new Response("No feedback found"), HttpStatus.OK);
+        if (feedbackList.isEmpty()) return new ResponseEntity<>(new Response("No feedback found", feedbackList), HttpStatus.OK);
+        else return new ResponseEntity<>(new Response(feedbackList), HttpStatus.OK);
     }
 }
